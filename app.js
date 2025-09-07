@@ -2,6 +2,9 @@ const navContainer = document.getElementById('navContainer');
 const mainAllTress = document.getElementById('mainAllTress');
 const alltressdiv = document.getElementById('alltressdiv');
 const everyTreesName = document.getElementById('everyTreesName')
+const cartList = document.getElementById('cartList')
+const count = document.getElementById('count')
+let cartListHisory = [];
 
 const loadNav = () => {
   const url = 'https://openapi.programming-hero.com/api/categories';
@@ -19,7 +22,7 @@ const showNav = (categories) => {
     // console.log(categorie)
     const div = document.createElement('div');
     div.innerHTML = `
- <li id='${categorie.id}'> ${categorie.category_name}</li>
+ <li  id='${categorie.id}'> ${categorie.category_name}</li>
    `;
     navContainer.append(div);
   });
@@ -73,6 +76,45 @@ const showThreesId =(plants) => {
   })
   
 }
+const showCartList = (cartListHisory) => {
+cartList.innerHTML = '';
+  let totalPrice = 0;
+ cartListHisory.forEach(list => {
+  totalPrice +=list.price;
+  // console.log(list)
+  const div = document.createElement('div')
+  div.innerHTML = `
+<div class='flex justify-between items-center bg-[#f0fdf4] mt-2 p-2 rounded-md'>
+<div>
+  <h2>${list.name}</h2>
+  <p>${list.price}</p>
+</div>
+<button>❌ </button>
+</div>
+  
+  `;
+
+  cartList.append(div)
+ })
+ count.innerText = totalPrice
+}
+
+everyTreesName.addEventListener('click', (e) => {
+  // console.log(e.target.parentNode.children[3].children[1])
+  if(e.target.innerText === 'add to cart'){
+        const name = e.target.parentNode.children[1].innerText;
+         const price = parseInt(e.target.parentNode.children[3].children[1].innerText)
+cartListHisory.push({
+  name :name,
+  price : price
+})
+
+showCartList(cartListHisory)
+  }
+
+})
+
+
 
 const allTrees = () => {
   const url = 'https://openapi.programming-hero.com/api/plants';
@@ -83,6 +125,7 @@ const allTrees = () => {
     });
 };
 
+
 const showTrees = (plants) => {
   // console.log(plants)
   plants.forEach((plant) => {
@@ -91,7 +134,7 @@ const showTrees = (plants) => {
     div.innerHTML = `
 <div class='flex flex-col gap-2 p-3 bg-white shadow-md rounded-md'>
 
-      <img src="${plant.image}" alt="${plant.name}" class="w-full h-100 rounded-lg"/>
+      <img src="${plant.image}" alt="${plant.name}" class="w-full h-90 rounded-lg"/>
     <h2 class='text-2xl'>${plant.name}</h2>
     <p class='line-clamp-3'>${plant.description}</p>
 <div class='flex justify-between'>
