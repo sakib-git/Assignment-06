@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <div class="flex justify-between items-center bg-[#15803D] py-3 text-white px-12 max-sm:flex-col max-sm:gap-4">
+      <div class="flex justify-between items-center bg-[#15803D] py-3 text-white px-12 max-sm:flex-col max-sm:gap-4 >
         <span class="max-sm:text-4xl text-[20px] font-bold">Green Earth</span>
         <div class="flex gap-5">
           <a href="#">About</a>
@@ -18,7 +18,7 @@
         </div>
         <button class="bg-[#FACC15] text-[#15803D] px-4 rounded-full py-2 max-sm:w-full cursor-pointer">Plant a Tree</button>
       </div>
-      <div class="banner bg-[#CFF0DC] flex justify-between items-center max-lg:flex-col-reverse max-lg:gap-6 max-md:py-4">
+      <div class="banner bg-[#CFF0DC] flex justify-between items-center max-lg:flex-col-reverse max-lg:gap-6 max-md:py-4 ">
         <div>
           <img src="assets/hero-leaf1.png" alt="" />
         </div>
@@ -38,22 +38,25 @@
     <main class="bg-[#f0fdf4] ">
      <h2 class="text-center py-5 text-[clamp(1.1rem,0.6rem+2vw,2.4rem)]">Choose Your Trees</h2>
 
-      <div class="container max-w-[1650px] mx-auto grid grid-cols-5 max-md:grid-cols-1 gap-5">
+      <div class="container max-w-[1650px] mx-auto grid grid-cols-5 max-lg:grid-cols-1 gap-5">
       
-        <div class="col-span-1 flex flex-col gap-3">
+        <div class="col-span-1 flex flex-col gap-3 max-lg:px-4">
           <span class="font-bold text-2xl">Categories</span>
           <p id="alltreespara" class="bg-[#15803D] text-white p-1 px-2 rounded-md">All Trees</p>
           <nav>
-            <ul id="navContainer" class="text-[#15803D] flex flex-col gap-2">
+            <ul id="navContainer" class="text-[#15803D] flex flex-wrap gap-4 lg:flex-col ">
 
             </ul>
           </nav>
         </div>
-        <div id="mainAllTress" class="col-span-3 grid grid-cols-3 gap-4 ">
-          <!-- <div class="alltressdiv grid grid-cols-3 gap-4 "></div> -->
+        <div id="mainAllTress" class="col-span-3 grid grid-cols-1   gap-4 ">
+          <div id="alltressdiv" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3   gap-4"></div>
+          <div id="everyTreesName" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
         </div>
-        <div class="bg-violet-500 col-span-1">
-<h1>skaib</h1>
+          
+       
+        <div class="bg-white col-span-1 p-2">
+       <h3 class="font-bold text-2xl bg-red-600">Your cart</h3>
         </div>
       </div>
 
