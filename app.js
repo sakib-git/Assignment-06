@@ -4,6 +4,7 @@ const alltressdiv = document.getElementById('alltressdiv');
 const everyTreesName = document.getElementById('everyTreesName')
 const cartList = document.getElementById('cartList')
 const count = document.getElementById('count')
+const alltreespara = document.getElementById('alltreespara')
 let cartListHisory = [];
 
 const loadNav = () => {
@@ -59,15 +60,18 @@ const showThreesId =(plants) => {
     // console.log(plant)
     const div  = document.createElement('div')
     div.innerHTML = `
-    <div class='flex flex-col gap-4 p-3 bg-white shadow-md rounded-md '>
-          <img src="${plant.image}" alt="${plant.name}" class="w-full h-100  rounded-lg"/>
+     <div class=' space-y-4 p-3 bg-white shadow-md rounded-md mt-4 '>
+         <div class="aspect-[3/3]">
+          <img src="${plant.image}" alt="${plant.name}" class="w-full h-full object-cover  rounded-lg"/>
+          </div>
           <h2>${plant.name}</h2>
            <p class='line-clamp-3'>${plant.description}</p>
     <div class='flex justify-between'>
-    <P class='bg-[#DCFCE7] p-1 px-2 rounded-full'>${plant.category}</P>
-    <P>${plant.price}</P>
+    <P class='bg-[#DCFCE7] p-1 px-2 text-[#15803D] rounded-full'>${plant.category}</P>
+    <P class="font-bold"><span>${plant.price}</span></P>
+    
 </div>
-    <button class='bg-[#15803D] text-white p-2 rounded-full font-medium'>add to cart</button>
+    <button class='bg-[#15803D] text-white p-2 rounded-full w-full font-medium'>add to cart</button>
     
     </div>
     
@@ -132,16 +136,21 @@ const showTrees = (plants) => {
     // console.log(plant);
     const div = document.createElement('div');
     div.innerHTML = `
-<div class='flex flex-col gap-2 p-3 bg-white shadow-md rounded-md'>
+<div class='space-y-4  p-3 bg-white shadow-md rounded-md'>
 
-      <img src="${plant.image}" alt="${plant.name}" class="w-full h-90 rounded-lg"/>
+      <div class='aspect-[3/3]'>
+      <img src="${plant.image}" alt="${plant.name}" class="w-full h-full object-cover rounded-lg"/>
+      </div>
+
+
     <h2 class='text-2xl'>${plant.name}</h2>
     <p class='line-clamp-3'>${plant.description}</p>
 <div class='flex justify-between'>
-    <P class='bg-[#DCFCE7] p-1 px-2 rounded-full'>${plant.category}</P>
-    <P>${plant.price}</P>
+    <P class='bg-[#DCFCE7] text-[#15803D] p-1 px-2 rounded-full'>${plant.category}</P>
+   
+    <P class="font-bold"><span>${plant.price}</span></P>
 </div>
-    <button class='bg-[#15803D] text-white p-2 rounded-full font-medium'>add to cart</button>
+    <button class='bg-[#15803D] text-white w-full p-2 rounded-full font-medium'>add to cart</button>
 
 
 </div>
@@ -151,7 +160,24 @@ const showTrees = (plants) => {
   });
 };
 
+alltressdiv.addEventListener('click', (e) => {
 
+  if(e.target.innerText === 'add to cart'){
+        const name = e.target.parentNode.children[1].innerText;
+         const price = parseInt(e.target.parentNode.children[3].children[1].innerText)
+cartListHisory.push({
+  name :name,
+  price : price
+})
+
+showCartList(cartListHisory)
+  }
+})
+
+ alltreespara.addEventListener('click', () => {
+  alltressdiv.innerHTML = '';
+ allTrees()
+})
 
 allTrees();
 loadNav();
