@@ -10,32 +10,38 @@
   </head>
   <body>
     <header>
-      <div class="flex justify-between items-center bg-[#15803D] py-3 text-white px-12 max-sm:flex-col max-sm:gap-4">
-        <span class="max-sm:text-4xl text-[20px] font-bold">Green Earth</span>
-        <div class="flex gap-5">
-          <a href="#">About</a>
-          <a href="#">Gallery</a>
-          <a href="#">Plant a Tree</a>
+      <div class="bg-[#15803D]">
+        <div class="max-w-[1650px] mx-auto flex justify-between items-center py-3 text-white px-12 max-sm:flex-col max-sm:gap-4">
+          <span class="max-sm:text-4xl text-[20px] font-bold">Green Earth</span>
+          <div class="flex gap-5">
+            <a class="hover:underline" href="#">About</a>
+            <a class="hover:underline" href="#">Gallery</a>
+            <a class="hover:underline" href="#">Plant a Tree</a>
+          </div>
+          <button class="bg-[#FACC15] hover:bg-[#EAB308] text-[#15803D] px-4 rounded-full py-2 max-sm:w-full cursor-pointer">Plant a Tree</button>
         </div>
-        <button class="bg-[#FACC15] text-[#15803D] px-4 rounded-full py-2 max-sm:w-full cursor-pointer">Plant a Tree</button>
       </div>
-      <div class="banner bg-[#CFF0DC] flex justify-between items-center max-lg:flex-col-reverse max-lg:gap-6 max-md:py-4">
-        <div>
-          <img src="assets/hero-leaf1.png" alt="" />
-        </div>
-        <div class="text-center flex flex-col gap-3 max-md:px-4">
-          <h1 class="text-[clamp(1.1rem,0.6rem+2vw,2.4rem)]">Plant a Tree, Grow a Future</h1>
-          <p class="">
-            Join our mission to plant 1 million trees and make the Earth greener for future <br class="max-xl:hidden" />
-            generations.
-          </p>
-          <div class="max-w-[150px] mx-auto"><button class="bg-[#FACC15] text-[#15803D] px-4 rounded-full py-2 cursor-pointer">Get Involved</button></div>
-        </div>
-        <div>
-          <img src="assets/hero-leaf2.png" alt="" />
+
+      <div class="bg-[#CFF0DC]">
+        <div class="max-w-[1650px] mx-auto flex justify-between items-center max-lg:flex-col-reverse max-lg:gap-6 max-md:py-4">
+          <div>
+            <img src="assets/hero-leaf1.png" alt="" />
+          </div>
+          <div class="text-center flex flex-col gap-3 max-md:px-4">
+            <h1 class="text-[clamp(1.1rem,0.6rem+2vw,2.4rem)]">Plant a Tree, Grow a Future</h1>
+            <p class="">
+              Join our mission to plant 1 million trees and make the Earth greener for future <br class="max-xl:hidden" />
+              generations.
+            </p>
+            <div class="max-w-[150px] mx-auto"><button class="bg-[#FACC15] hover:bg-[#EAB308] text-[#15803D] px-4 rounded-full py-2 cursor-pointer">Get Involved</button></div>
+          </div>
+          <div>
+            <img src="assets/hero-leaf2.png" alt="" />
+          </div>
         </div>
       </div>
     </header>
+
     <main class="bg-[#f0fdf4]">
       <h2 class="text-center py-5 text-[clamp(1.1rem,0.6rem+2vw,2.4rem)]">Choose Your Trees</h2>
 
@@ -47,12 +53,19 @@
           </nav>
         </div>
         <div id="mainAllTress" class="col-span-3 grid grid-cols-1 gap-4">
-
-          <div id="alltressdiv" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
-          <div id="everyTreesName" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"></div>
+          <div id="alltressdiv" class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
+            <!-- Loader -->
+            <div class="h-[300px] w-full bg-white rounded-lg shadow grid place-items-center">
+              <div>
+                <span class="loading loading-ring loading-md"></span>
+                <span class="loading loading-ring loading-md"></span>
+                <span class="loading loading-ring loading-md"></span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-white col-span-1 p-2">
+        <div class="bg-white col-span-1 p-4">
           <h3 class="font-bold text-2xl">Your cart</h3>
           <div id="cartList"></div>
           <div class="Price flex justify-between">
@@ -110,9 +123,9 @@
           <div class="w-full">
             <select class="p-2 w-full bg-[#f4f5f7] rounded-md outline-none border-white">
               <option>Number of Trees</option>
-              <option>Fruit Tree</option>
-              <option>Flowering Tree</option>
-              <option>Shade Tree</option>
+              <option>1 Tree - $5</option>
+              <option>5 Trees - $25</option>
+              <option>10 Trees - $50</option>
             </select>
           </div>
 
@@ -126,7 +139,7 @@
 
     <!-- Modals -->
     <div id="modal" class="fixed hidden grid place-items-center p-4 inset-0 bg-black/50 z-20">
-      <div class="bg-white p-4 space-y-4 rounded-xl w-full max-w-[650px]">
+      <div class="bg-white p-4 rounded-xl w-full max-w-[650px]">
         <div class="modal-container"></div>
         <button onclick="hideModal()" class="modal-close-btn bg-zinc-200 px-4 py-2 text-sm block ml-auto rounded-md font-medium">Close</button>
       </div>
