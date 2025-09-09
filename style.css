@@ -1,0 +1,8 @@
+.category-btn {
+  width: 100%;
+  display: flex;
+}
+.category-btn.active {
+  color: #fff;
+  background-color: #15803D;
+}
